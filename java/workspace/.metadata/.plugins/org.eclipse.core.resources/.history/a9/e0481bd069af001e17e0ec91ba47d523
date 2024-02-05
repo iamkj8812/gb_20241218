@@ -1,0 +1,15 @@
+package thread;
+
+public class ThreadInterruptTest extends Thread {
+
+	@Override
+	public void run() {
+		
+	}
+	
+	
+}
+
+
+
+

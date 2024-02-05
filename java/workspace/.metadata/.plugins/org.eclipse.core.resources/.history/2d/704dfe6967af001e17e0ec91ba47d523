@@ -1,0 +1,17 @@
+package thread;
+
+public class Main03 {
+
+	public static void main(String[] args) {
+		Thread th1 = new Thread();
+		
+		
+	}
+
+}
+
+
+
+
+
+

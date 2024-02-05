@@ -1,0 +1,20 @@
+package thread;
+
+public class RunableTest implements Runnable{
+
+	@Override
+	public void run() {
+		try {
+			
+			
+		}catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		
+	}
+
+}
+
+
+
+

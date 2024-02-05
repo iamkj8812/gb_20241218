@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<body>
+    <input type="button" value="click me" id="click_me">
+    <input type="button" value="unbind" id="remove_event">
+    <script>
+        // ready event : HTML 랜더링이 완료 된 후 호출
+        $(document).bind('load',function(){
+            alert('test');
+            function clickHandler(e){
+                alert('hello javascript');
+            }
+            $("#click_me").bind('click',clickHandler);
+            $("#remove_event").bind('click',function(){
+                $("#click_me").unbind('click',clickHandler);
+            });
+        });
+
+    </script>
+</body>
+</html>
+
+
+
+
+

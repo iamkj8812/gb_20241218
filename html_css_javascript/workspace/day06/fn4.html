@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>        
+        // function이 만들어지는 시점과 호출하는 시점의 
+        // 코드상의 차이는 있으나, 자바스크트립트 호이스팅 
+        // 현상으로 정상작동
+        console.log(helloFn());
+        // 함수 선언식
+        function helloFn(){
+            return "hello fn";
+        }
+        // 무명함수 -> 함수 표현식
+        // 호이스팅 현상이 적용되지 않는다. 에러가 발생
+        var helloFn2 = function(){
+            return "hello no name";
+        };
+        console.log(helloFn2());
+    </script>    
+</body>
+</html>
+
+
+
+
+
+
+

@@ -1,0 +1,18 @@
+package Interface;
+
+public class Character implements Action, Move, Fight {
+	private String name;
+	public Character(String name) {
+		super();
+		this.name = name;
+	}
+	
+	
+	
+}
+
+
+
+
+
+

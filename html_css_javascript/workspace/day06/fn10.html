@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>        
+        checkMood("bad", dance, cry);
+        // 함수의 파라미터로 함수를 넘기는 것
+        function checkMood(mood, goodCallBack, badCallBack){
+            if( mood == "good" ){
+                goodCallBack();
+            } else {
+                badCallBack();
+            }
+        }
+        function cry(){
+            document.write("<h1>CRY</h1>");
+        }
+        function sing(){
+            document.write("<h1>SING</h1>");
+        }
+        function dance(){
+            document.write("<h1>DANCE</h1>");
+        }
+    </script>    
+</body>
+</html>
+
+
+
+
+
+

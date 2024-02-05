@@ -1,0 +1,23 @@
+package thread;
+
+public class Account {
+	int balance = 10000;
+	
+	public void withdraw(int money) {
+		if(balance >= money) {
+			balance -= money;
+		}
+	}
+	
+	
+}
+
+
+
+
+
+
+
+
+
+

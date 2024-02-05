@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    #parent, #other, #grand{ border: 5px solid tomato; }
+    #grand{ position: relative; }
+    #me{
+        background-color: black;
+        color: white;
+        /* position: absolute 
+            -> 원래의 자기가 있기로 기대되는 위치로 자리잡는다
+            absolute로 지정되면 부모 태그와는 무관한 상태가
+            된다. 원래대로면 부모 태그 밑에 자리해야 하지만,
+            기본 html을 기준으로 자리를 잡는다.
+            -> static이 아닌 부모가 나타날때까지 독립적으로 
+            행동하다. static이 아닌 부모가 나타나면 다시 그 
+            부모에게 종속적이다. 
+         */
+        position: absolute;
+        left: 0; top: 0;        
+    }
+</style>
+<body>
+    <div id="other">other</div>
+    <div id="grand">
+        grand
+        <div id="parent">
+            parent
+            <div id="me">me</div>
+        </div>
+    </div>
+</body>
+</html>
+
+
+
+
+
+

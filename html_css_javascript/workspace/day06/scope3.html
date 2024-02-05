@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var vscope = 'global';
+        function fscope(){
+            var vscope = 'local';
+            alert(vscope);
+        }
+        fscope();
+        /*
+            지역변수의 유효범위는 함수 안이고, 
+            전역변수의 유효범위는 애플리케이션 전역인데,
+            같은 이름의 지역변수와 전역번수가 동시에 존재하는
+            경우, 지역변수가 우선한다.
+        */
+    </script>    
+</body>
+</html>
+
+
+
+
+
+
+

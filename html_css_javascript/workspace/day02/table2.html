@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table border="1">
+        <!-- thead : 테이블에서 head 부분을 의미 -->
+        <thead>
+            <tr>
+                <!-- th : 제목 -->
+                <th>이름</th>
+                <th>성별</th>
+                <th>주소</th>
+                <th>회비</th>
+            </tr>
+        </thead>
+        <!-- tbody : 테이블에서 본문 -->
+        <tbody>
+            <tr>
+                <td>김자바</td>
+                <td>남</td>
+                <!-- rowspan : 행을 병합 -->
+                <td rowspan="2">서울</td>
+                <td>1000</td>
+            </tr>
+            <tr>
+                <td>김디비</td>
+                <td>여</td>
+                <td>500</td>
+            </tr>
+        </tbody>
+        <!-- tfoot : 표상에서 가장 아래 쪽 -->
+        <tfoot>
+            <tr>
+                <!-- colspans : 열을 병합 -->
+                <td colspan="3">합계</td>
+                <td>1500</td>
+            </tr>
+        </tfoot>
+    </table>
+</body>
+</html>
+
+
+
+
+
+

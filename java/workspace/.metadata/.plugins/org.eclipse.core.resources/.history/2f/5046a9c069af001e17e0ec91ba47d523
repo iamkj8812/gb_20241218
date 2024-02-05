@@ -1,0 +1,10 @@
+package thread;
+
+public class ThreadInterruptTest extends Thread {
+
+	public void run() {
+		
+	}
+	
+	
+}

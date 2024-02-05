@@ -1,0 +1,18 @@
+package thread;
+
+public class ThreadTest extends Thread{
+
+	
+	
+	
+}
+
+
+
+
+
+
+
+
+
+

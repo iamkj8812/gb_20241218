@@ -1,0 +1,27 @@
+package thread;
+
+public class Bank extends Thread {
+//	private String name;
+	static Account obj = new Account();
+	public Bank(String name) { 
+//		this.name = name;
+		super(name);
+	}
+
+
+
+	@Override
+	public void run() {
+		while(true) {
+			synchronized ( ) {
+				
+			}
+		}
+	}
+	
+}
+
+
+
+
+

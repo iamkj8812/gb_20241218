@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let arr = ["Hello", 10, 32.6, true];
+
+        find(arr, "Hello");
+        function find(arr, value){
+            let indexNum = arr.indexOf(value);
+            if( indexNum == -1 ){   // 존재하지 않는 경우
+                document.write("해당 data " + value 
+                    + "는 " + arr + " 배열에 존재하지 않습니다");
+            } else {    // 존재하는 경우
+                document.write(arr + " 배열에서 " + value + "는"
+                    + indexNum + "번 인덱스에 있습니다. ");
+            }
+        }
+    </script>    
+</body>
+</html>
+
+
+
+
+
+

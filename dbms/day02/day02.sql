@@ -1,0 +1,310 @@
+SELECT * FROM EMPLOYEES e ;
+
+SELECT 	EMPLOYEE_ID , FIRST_NAME , LAST_NAME 
+FROM 	EMPLOYEES 
+WHERE 	LAST_NAME 	= 'Smith'
+AND 	FIRST_NAME 	= 'William' 
+;
+
+/*
+ * 1. employees 테이블에서 department_id가 100이고 
+ * job_id가 FI_MGR인 사람의 모든 데이터 조회
+ */
+SELECT 	*
+FROM 	EMPLOYEES e
+WHERE 	DEPARTMENT_ID = 100
+AND 	JOB_ID = 'FI_MGR'
+;
+
+/*
+ * 2. employees 테이블에서 first_name이 Guy인 사람의 
+ * employee_id, first_name, last_name, job_id 조회
+ */
+SELECT 	EMPLOYEE_ID , FIRST_NAME , LAST_NAME , JOB_ID 
+FROM 	EMPLOYEES e 
+WHERE 	FIRST_NAME = 'Guy'
+;
+/*
+ * 3. employees 테이블에서 department_id가 50이고 
+ * manager_id가 121인 사람의 
+ * employee_id, first_name, last_name, job_id 조회
+ */
+SELECT 	EMPLOYEE_ID , FIRST_NAME , LAST_NAME , 
+		JOB_ID , DEPARTMENT_ID  
+FROM 	EMPLOYEES e 
+WHERE 	MANAGER_ID = 121
+AND 	DEPARTMENT_ID = 50
+;
+
+-- 별칭, 알리아스, as
+SELECT 	e.EMPLOYEE_ID AS "ID" ,
+		SALARY "SAL"
+FROM 	EMPLOYEES e 
+;
+
+-- disinct : 중복제거
+SELECT 	DISTINCT DEPARTMENT_ID 
+FROM 	EMPLOYEES e 
+;
+
+SELECT EMPLOYEE_ID , DEPARTMENT_ID  FROM EMPLOYEES e ;
+SELECT * FROM EMPLOYEES e WHERE EMPLOYEE_ID = 178;
+
+-- 비교문
+-- >= 
+SELECT 	*
+FROM 	EMPLOYEES e
+WHERE 	SALARY >= 5000
+;
+-- AND
+-- OR
+-- 부서가 50 또는  30번인 사원
+SELECT 	*
+FROM 	EMPLOYEES e 
+WHERE 	DEPARTMENT_ID = 50
+OR 		DEPARTMENT_ID =30
+;
+
+-- not
+SELECT 	*
+FROM 	EMPLOYEES e
+WHERE 	NOT(DEPARTMENT_ID = 50)
+;
+
+-- not -> <>
+SELECT 	*
+FROM 	EMPLOYEES e 
+WHERE 	DEPARTMENT_ID <> 50
+;
+
+-- not -> !=
+SELECT 	*
+FROM 	EMPLOYEES e 
+WHERE 	DEPARTMENT_ID != 50
+;
+
+-- salary 4000~8000
+SELECT 	*
+FROM 	EMPLOYEES e 
+WHERE 	SALARY >= 4000
+AND 	SALARY <= 8000
+;
+
+-- salary 4000~8000 = between 4000 and 8000
+SELECT 	*
+FROM 	EMPLOYEES e 
+WHERE 	SALARY BETWEEN 4000 AND 8000
+;
+
+SELECT 	*
+FROM 	EMPLOYEES e 
+WHERE 	SALARY = 6500
+OR 		SALARY = 7700
+OR 		SALARY = 13000
+;
+
+-- in 절(or와 동일)
+SELECT 	*
+FROM 	EMPLOYEES e
+WHERE 	SALARY IN (6500, 7700, 13000)
+;
+
+/*
+ * 1.employees 테이블에서 
+ * employee_id, first_name, last_name, job_id를 출력하는데,
+ * job_id가 ST_MAN이고, manager_id가 100이고, 
+ * salary가 5000이상인 사람.
+ */
+SELECT 	EMPLOYEE_ID ,	FIRST_NAME , LAST_NAME ,JOB_ID 
+FROM 	EMPLOYEES e
+WHERE 	JOB_ID 		= 'ST_MAN'
+AND 	MANAGER_ID 	= 100
+AND 	SALARY 		>= 5000
+;
+
+
+-- 2.
+-- EMPLOYEES 테이블에서 EMPLOYEE_ID, first_name, 
+-- last_name, JOB_ID
+-- MANAGER_ID, SALARY 를 조회
+-- DEPARTMENT_ID가 10 또는 30 또는 100 또는 90에 속하고,
+-- 급여(SALARY)가 5000에서 10000사이 이고
+-- 매니저(MANAGER_ID)가 100이 아닌 사람을 조회
+SELECT 	EMPLOYEE_ID , FIRST_NAME , 
+		LAST_NAME , JOB_ID ,
+		MANAGER_ID , SALARY 
+FROM 	EMPLOYEES e 
+WHERE 	DEPARTMENT_ID  IN (10, 30, 90, 100)
+AND 	SALARY BETWEEN 5000 AND 10000
+AND 	MANAGER_ID <> 100
+;
+
+-- like : D로 시작하는 사람
+SELECT 	EMPLOYEE_ID , FIRST_NAME , LAST_NAME 
+FROM 	EMPLOYEES e 
+WHERE 	FIRST_NAME LIKE 'D%' 
+;
+
+-- like : d로 끝나는 사람
+-- employees , EMPLOYEE_ID , FIRST_NAME , LAST_NAME 
+SELECT 	EMPLOYEE_ID , FIRST_NAME ,LAST_NAME 
+FROM 	EMPLOYEES e
+WHERE 	FIRST_NAME LIKE '%d'
+;
+
+SELECT 	EMPLOYEE_ID , FIRST_NAME , LAST_NAME 
+FROM 	EMPLOYEES e 
+WHERE 	FIRST_NAME LIKE '__a%'
+;
+
+-- is null
+SELECT 	*
+FROM 	EMPLOYEES e
+WHERE 	COMMISSION_PCT IS NULL 
+;
+
+-- is not null
+SELECT 	*
+FROM 	EMPLOYEES e
+WHERE 	e.COMMISSION_PCT IS NOT NULL 
+;
+
+-- 정렬, order by asc : 오름차순(asc 생략 가능)
+SELECT 	EMPLOYEE_ID , FIRST_NAME , 
+		LAST_NAME, DEPARTMENT_ID  
+FROM 	EMPLOYEES e
+ORDER BY DEPARTMENT_ID, FIRST_NAME 
+;
+
+-- order by desc : 내림차순(생략불가)
+SELECT 	EMPLOYEE_ID , FIRST_NAME , SALARY 
+FROM 	EMPLOYEES e 
+ORDER BY SALARY, FIRST_NAME  DESC 
+;
+
+-- 합계 : sum
+SELECT 	SUM(SALARY) 
+FROM 	EMPLOYEES e 
+;
+
+-- count(컬럼) or count(*)
+-- 107
+SELECT 	COUNT(EMPLOYEE_ID) AS "empCnt"
+FROM	EMPLOYEES e 
+;	
+-- 106
+SELECT 	COUNT(DEPARTMENT_ID)
+FROM	EMPLOYEES e 
+;	
+
+-- EMPLOYEES 테이블에서 중복을 제거한 부서 갯수
+SELECT 	count(DISTINCT  DEPARTMENT_ID) 
+FROM 	EMPLOYEES e 
+;
+
+SELECT 	count(FIRST_NAME) , 
+		count(DISTINCT  FIRST_NAME) 
+FROM 	EMPLOYEES e 
+;
+
+-- avg()
+-- 6461.831775700934579439252336448598130841
+SELECT 	AVG(SALARY) 
+FROM 	EMPLOYEES e 
+;
+
+-- 부서가 80번인 사원의 급여 평균
+-- 8955.882352941176470588235294117647058824
+SELECT 	avg(SALARY) 
+FROM 	EMPLOYEES e 
+WHERE 	DEPARTMENT_ID = 80
+;
+
+-- max()
+SELECT 	max(SALARY) 
+FROM 	EMPLOYEES e 
+;
+SELECT 	MAX(HIRE_DATE)  
+FROM 	EMPLOYEES e 
+;
+
+-- min()
+SELECT 	min(SALARY)
+FROM 	EMPLOYEES e 
+;
+SELECT 	min(HIRE_DATE) 
+FROM 	EMPLOYEES e 
+;
+
+-- abs
+SELECT 	ABS(-23)
+FROM	dual
+;
+
+-- 반올림 round()
+SELECT 	ROUND(0.1234), ROUND(0.5678)  
+FROM 	dual
+;
+
+-- 절사 trunc
+SELECT 	TRUNC(1234.56789)  
+FROM 	dual 
+;
+SELECT 	TRUNC(1234.56789, 2)  
+FROM 	dual 
+;
+SELECT 	TRUNC(1234.56789, -1)  
+FROM 	dual 
+;
+
+/*
+ * 1. 연봉이 12000 초과되는 직원들의 LAST_NAME 및 연봉을 조회한다.
+ * 단, 급여 오름차순으로 조회
+ */
+SELECT 	LAST_NAME , SALARY 
+FROM 	EMPLOYEES e
+WHERE 	e.SALARY > 12000
+ORDER BY SALARY 
+;
+
+/*
+ * 2. 사원번호가 176 인 사람의 LAST_NAME 과 부서 번호를 조회한다.
+ */
+SELECT 	LAST_NAME , DEPARTMENT_ID 
+FROM 	EMPLOYEES e 
+WHERE 	EMPLOYEE_ID = 176
+;
+/*
+ * 3.  연봉이 5000 에서 12000의 범위 이외인 사람들의 
+	LAST_NAME 및 연봉을 조회한다.
+ */
+SELECT 	LAST_NAME , SALARY 
+FROM 	EMPLOYEES e
+WHERE 	NOT SALARY BETWEEN 5000 AND 12000
+ORDER BY SALARY 
+;
+
+/*
+ * --  4. 2001-01-01 일부터 2001-12-31 사이에 고용된 사원들의 
+ * LAST_NAME 사번, 고용일자를 조회한다.
+ */
+SELECT 	LAST_NAME , EMPLOYEE_ID , 
+		HIRE_DATE , TO_CHAR(HIRE_DATE, 'yyyy-mm-dd') 
+FROM 	EMPLOYEES e
+WHERE 	TO_CHAR(HIRE_DATE, 'yyyy-mm-dd') 
+	BETWEEN '2001-01-01' AND '2001-12-31'
+;
+
+/*
+ * 5. 20 번 및 50 번 부서에서 근무하는 모든 사원들의 LAST_NAME, DEPARTMENT_ID
+ * 를 조회하고, LAST_NAME 알파벳순으로 정렬
+ */
+SELECT 	LAST_NAME , DEPARTMENT_ID 
+FROM 	EMPLOYEES e 
+WHERE 	DEPARTMENT_ID IN (20,50)
+ORDER BY LAST_NAME 
+;
+
+
+
+

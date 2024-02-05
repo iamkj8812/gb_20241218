@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let s = ['이유덕', '이재영', '권종표', '이재영', '박민호', '강상희',
+            '이재영', '김지완', '최승혁', '이성연', '박영서',
+            '박민호', '전경헌', '송정환', '김재성', '이유덕', '전경헌'];
+        
+        document.write(naming1()); 
+        // 1. '김'씨와 '이'씨는 각각 몇명인가?
+        function naming1(){
+            let kim = 0;
+            let lee = 0;
+            for( let i = 0; i<s.length; i++ ){
+                // 이씨일 경우
+                if( s[i][0] == '이' ){
+                    lee++;
+                }
+                // 김씨일 경우
+                if( s[i][0] == '김' ){
+                    kim++;
+                }
+            }
+            return "kim : " + kim + ", lee : " + lee;
+        }
+        
+        // 2. '이재영'이란 이름이 몇 번 반복되는지?
+        // 이재영 이라는 사람의 이름 반복 횟수 return
+        document.write("<hr/>");
+        document.write(naming2('이재영')); 
+        function naming2(param){
+            let count = 0;
+            for( let i=0; i<s.length; i++ ){
+                if(s[i] == param){
+                    count++;
+                }
+            }
+            return param + ":" + count;
+        }
+
+        document.write('<hr/>')
+        console.log('++++')
+        document.write(naming3('이재영'));
+        function naming3(name){
+            // console.log("indexOf : " +  s.indexOf(name) );
+            
+            let count = 0;
+            s.forEach((elm) => {
+                if( elm == name ){
+                    count++;
+                }
+            });
+            return count;
+        }
+
+
+    </script>
+</body>
+</html>
+
+
+
+
+
+

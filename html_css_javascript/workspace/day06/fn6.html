@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var helloA = () => {
+            return "화살표 함수 호출";
+        }
+        document.write("<h1>" + helloA() + "</h1>");
+
+        // 화살표 함수도 함수 호이스팅의 대상은 아니다.
+        var helloB = () => "화살표 함수 호출";        
+        document.write("<h1>" + helloB() + "</h1>");
+
+        // 매개변수가 있는경우 - 하나인 경우
+        var helloC = x => document.write("<h1>" + x + "</h1>");
+        helloC("화살표 매개변수 있는경우");
+
+        // 매개변수가 여러개인 경우
+        var helloD = (a,b) => document.write("<h1>" 
+                                + (a+b) + "</h1>");
+        helloD(1,2);
+    </script>    
+</body>
+</html>
+
+
+
+
+
+
+

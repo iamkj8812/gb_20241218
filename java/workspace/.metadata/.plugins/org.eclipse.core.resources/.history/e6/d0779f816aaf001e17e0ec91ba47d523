@@ -1,0 +1,26 @@
+package thread;
+
+public class Main04 {
+
+	public static void main(String[] args) {
+		ThreadInterruptTest th 
+			= new ThreadInterruptTest();
+		th.start();
+		
+		
+		
+	}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+

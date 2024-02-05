@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<body>
+    <!-- 베너영역 -->
+    <div id="banner">
+        <a href="#" id="banner_link" target="_blank">
+            <img src="" id="banner_img" width="320">
+        </a>
+    </div>
+    <script>
+        // 베너 이미지와 클릭시 이동할 url을 object로 정의한 배열
+        let banner = [
+            {img : 'img/batman.png', url:"http://www.youtube.com"},
+            {img : 'img/captainamerica.png', url:"http://www.naver.com"},
+            {img : 'img/hulk.png', url:"http://www.daum.net"},
+            {img : 'img/ironman.png', url:"http://www.google.com"}
+        ];
+
+        $(function(){
+            random_banner();
+            // 페이지가 열린 후 호출될 함수
+            // 1초마다 베너 변경을 위해서 타이머 가능
+            setInterval(function(){
+                // 함수호출
+                random_banner();
+            }, 1000);
+        });
+        function random_banner(){
+            // 0 ~ 배열길이 -1 사이의 랜덤값 얻기
+            let rand = random(0, banner.length -1);
+            // 데이터중 하나 선택
+            let item = banner[rand];
+            // 베너 적용
+            $("#banner_link").attr("href", item.url);
+            $("#banner_img").attr("src", item.img);
+        }
+        function random(n1, n2){
+            return parseInt(Math.random() * (n2-n1+1)) + n1;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,10 @@
+package thread;
+
+public class Bank extends Thread {
+
+	@Override
+	public void run() {
+		
+	}
+	
+}

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>
+        <label>event check on</label>
+        <input id="eventCheck" type="checkbox">
+    </p>
+    <p>
+        <a id="eventA" href="http://www.naver.com">naver</a>        
+    </p>
+    <p>
+        <form id="eventForm" action="http://www.naver.com">
+            <input type="submit">
+        </form>
+    </p>
+    <script>
+        document.getElementById('eventA').onclick = function(){
+            if( document.getElementById('eventCheck').checked ){
+                return false;
+            }
+        }
+        document.getElementById('eventForm').onclick = function(){
+            if( document.getElementById('eventCheck').checked ){
+                return false;
+            }
+        }
+    </script>
+</body>
+</html>
+
+
+
+
+

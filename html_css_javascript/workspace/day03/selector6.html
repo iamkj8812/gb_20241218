@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    input{ 
+        /* 테두리 : 굵기 종류 색상 */
+        border: 1px solid orange; 
+    }
+    input[type='radio']{
+        color: tomato;
+    }
+    input[type='password']{
+        border: 1px solid purple; 
+    }
+</style>
+<body>
+    <form>
+        <h1>회원가입</h1>
+        <fieldset>
+            <legend>기본정보</legend>    
+            <div>
+                <label>
+                    아이디 : 
+                    <input type="text" name="user_id" id="user_id">
+                </label>
+            </div>    
+            <div>
+                <label>
+                    비밀번호 : 
+                    <input type="password" name="user_pw" id="user_pw">
+                </label>
+            </div>    
+        </fieldset>
+        <br/>
+
+        <fieldset>
+            <legend>성별</legend>
+            <div>
+                <label> 남자
+                    <input type="radio" name="gender" id="gender_m">
+                </label>
+                <label> 여자
+                    <input type="radio" name="gender" id="gender_w">
+                </label>
+            </div>
+        </fieldset>
+        <br/>
+
+        <fieldset>
+            <legend>취미</legend>
+            <div>
+                <label>축구
+                    <input type="checkbox" name="hobby" id="hobby1">
+                </label>
+                <label>야구
+                    <input type="checkbox" name="hobby" id="hobby2">
+                </label>
+                <label>농구
+                    <input type="checkbox" name="hobby" id="hobby3">
+                </label>
+            </div>
+        </fieldset>
+        <br/>
+    </form>
+</body>
+</html>
+
+
+
+
+
+
